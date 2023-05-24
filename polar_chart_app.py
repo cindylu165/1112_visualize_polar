@@ -168,13 +168,7 @@ else:
                 )
             )
         ),
-        height=500,
-        margin=dict(
-            r=100,  # 調整右側的間距
-            l=100,  # 調整左側的間距
-            t=100,  # 調整上方的間距
-            b=100,  # 調整下方的間距
-        ),
+        height=500
         # showlegend=False
     )
 
