@@ -15,16 +15,16 @@ st.title("空氣品質監測")
 st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 
 # 定義下拉式選單選項（使用字母排序）
-aspect_list = ['屏東','板橋', '台南']
-aspect_list.sort()
+location_list = ['屏東','板橋', '台南']
+location_list.sort()
 
 # 實作下來式選單（回傳一個 list）
-selected_aspect = st.multiselect('選一個構面繪圖', aspect_list)
+selected_location = st.selectbox('選一個地區', location_list)
 
 
 
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
-if len(selected_aspect) == 0:
+if len(selected_location) == 0:
     st.text('請選擇一項開始繪圖！')
 
 # 當使用者選擇至少一項內容時
