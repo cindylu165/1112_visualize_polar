@@ -16,7 +16,7 @@ st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 
 # 定義下拉式選單選項（使用字母排序）
 location_list = ['屏東','板橋', '台南']
-location_list.sort()
+# location_list.sort()
 
 # 實作下來式選單（回傳一個 list）
 selected_location = st.selectbox('選一個地區', location_list)
@@ -180,4 +180,4 @@ else:
 
     # # 顯示圖表
     # fig.show()
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
