@@ -80,8 +80,8 @@ else:
             colorscale='Blues',  # 設定顏色漸層
             colorbar=dict(
                 title='相對濕度',
-                len=0.5,
-                y=0.25,
+                len=0.4,
+                y=0.30,
                 x=1.1,
                 tickfont=dict(
                     size=8,
@@ -109,8 +109,8 @@ else:
             colorscale='Reds',  # 設定顏色漸層,
             colorbar=dict(
                 title='細懸浮微粒',
-                len=0.5,
-                y=0.25,
+                len=0.4,
+                y=0.30,
                 x=0.9,
                 tickfont=dict(
                     size=8,
@@ -137,8 +137,8 @@ else:
             colorscale='Greens',  # 設定顏色漸層
             colorbar=dict(
                 title='懸浮微粒',
-                len=0.5,
-                y=0.25,
+                len=0.4,
+                y=0.30,
                 x=1,
                 tickfont=dict(
                     size=8,
@@ -168,7 +168,7 @@ else:
                 )
             )
         ),
-        height=550,
+        height=600,
         # showlegend=False
     )
 
