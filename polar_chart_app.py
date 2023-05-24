@@ -15,7 +15,8 @@ st.title("空氣品質監測")
 st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 
 # 定義下拉式選單選項（使用字母排序）
-location_list = ['屏東','板橋', '臺南']
+location_list = _df.sitename.unique().tolist()
+# location_list = ['屏東','板橋', '臺南']
 # location_list.sort()
 
 # 實作下來式選單（回傳一個 list）
