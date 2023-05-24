@@ -51,7 +51,9 @@ else:
     end_date = pd.to_datetime('2022-12', format='%Y-%m')
     filtered_df = _df[(_df['monitormonth'] >= start_date) & (_df['monitormonth'] <= end_date)]
     # 篩選地區
-    loc = filtered_df[filtered_df['sitename']=="屏東"]
+    loc = filtered_df[filtered_df['sitename']==selected_location]
+    loc = loc.replace('x', 0)
+    loc = loc.fillna(0)
     loc = pd.pivot_table(loc, values='concentration', index=loc['monitormonth'], columns='itemname')
     loc = loc.reset_index()
     df_location = loc[['monitormonth', '細懸浮微粒', '懸浮微粒', '一氧化氮', '相對濕度']]
