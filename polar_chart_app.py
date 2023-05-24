@@ -4,6 +4,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import networkx as nx
 from pyvis.network import Network
+import plotly.graph_objects as go
 
 ## read the data
 _df = pd.read_csv("./data.csv")
