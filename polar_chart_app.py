@@ -78,7 +78,7 @@ else:
         theta=month_labels,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
-            size=10,
+            size=12,
             color=df_location['相對濕度'].tolist(),  # 根據 r 值設定顏色
             colorscale='Blues',  # 設定顏色漸層
             colorbar=dict(
@@ -107,7 +107,7 @@ else:
         theta=month_labels,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
-            size=10,
+            size=12,
             color=df_location['細懸浮微粒'].tolist(),  # 根據 r 值設定顏色
             colorscale='Reds',  # 設定顏色漸層,
             colorbar=dict(
@@ -135,7 +135,7 @@ else:
         theta=month_labels,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
-            size=10,
+            size=12,
             color=df_location['懸浮微粒'].tolist(),  # 根據 r 值設定顏色
             colorscale='Greens',  # 設定顏色漸層
             colorbar=dict(
