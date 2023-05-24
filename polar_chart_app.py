@@ -171,7 +171,7 @@ else:
                 )
             )
         ),
-        height=800,
+        height=650,
         # showlegend=False
     )
 
