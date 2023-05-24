@@ -61,9 +61,15 @@ fig.add_trace(go.Scatterpolar(
         size=10,
         color=df_location['相對濕度'].tolist(),  # 根據 r 值設定顏色
         colorscale='Blues',  # 設定顏色漸層
-        # colorbar=dict(
-        #     title='相對濕度'  # 設定顏色軸標題
-        # ),
+        colorbar=dict(
+            title='相對濕度',
+            len=0.4,
+            y=0.25,
+            x=1.1,
+            tickfont=dict(
+                size=9,
+            )
+        ),
         cmin=0.9*min(df_location['相對濕度'].tolist()),  # 設定顏色漸層最小值
         cmax=max(df_location['相對濕度'].tolist())  # 設定顏色漸層最大值
     ),
@@ -83,10 +89,16 @@ fig.add_trace(go.Scatterpolar(
     marker=dict(
         size=10,
         color=df_location['細懸浮微粒'].tolist(),  # 根據 r 值設定顏色
-        colorscale='Reds',  # 設定顏色漸層
-        # colorbar=dict(
-        #     title='細懸浮微粒'  # 設定顏色軸標題
-        # ),
+        colorscale='Reds',  # 設定顏色漸層,
+        colorbar=dict(
+            title='細懸浮微粒',
+            len=0.4,
+            y=0.25,
+            x=0.9,
+            tickfont=dict(
+                size=9,
+            )
+        ),
         cmin=0.9*min(df_location['細懸浮微粒'].tolist()),  # 設定顏色漸層最小值
         cmax=max(df_location['細懸浮微粒'].tolist())  # 設定顏色漸層最大值
     ),
@@ -106,9 +118,15 @@ fig.add_trace(go.Scatterpolar(
         size=10,
         color=df_location['懸浮微粒'].tolist(),  # 根據 r 值設定顏色
         colorscale='Greens',  # 設定顏色漸層
-        # colorbar=dict(
-        #     title='懸浮微粒'  # 設定顏色軸標題
-        # ),
+        colorbar=dict(
+            title='懸浮微粒',
+            len=0.4,
+            y=0.25,
+            x=1,
+            tickfont=dict(
+                size=9,
+            )
+        ),
         cmin=min(df_location['懸浮微粒'].tolist()),  # 設定顏色漸層最小值
         cmax=0.9*max(df_location['懸浮微粒'].tolist())  # 設定顏色漸層最大值
     ),
