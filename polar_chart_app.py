@@ -33,7 +33,7 @@ elif selected_area == '中部空品區':
 elif selected_area == '南部空品區':
     location = st.sidebar.selectbox('選擇地區', sorth)
 
-st.write('地區', selected_area, "-",location)
+st.write('**地區 : **', selected_area, "-",location)
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
 if len(location) == 0:
     st.text('請選擇一項開始繪圖！')
