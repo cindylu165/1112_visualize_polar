@@ -10,7 +10,10 @@ import plotly.graph_objects as go
 _df = pd.read_csv("./data.csv")
 
 # 設定網頁標題
-st.title("空氣品質監測 - 相對溼度對PM2.5、PM10、CO的影響")
+st.title("空氣品質監測")
+# 設定網頁副標題
+st.markdown("相對溼度對PM2.5、PM10、CO的影響")
+st.markdown("## 以屏東地區為例")
          
 # 建立字典，將年月份對應到角度
 month_labels = ['2021-01-01', '2021-02-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01',
