@@ -151,7 +151,7 @@ fig.update_layout(
             )
         )
     ),
-    height=400,
+    height=500,
     margin=dict(
         r=100,  # 調整右側的間距
         l=100,  # 調整左側的間距
