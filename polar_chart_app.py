@@ -18,14 +18,24 @@ st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 # location_list = _df.sitename.unique().tolist()
 location_list = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
 # location_list.sort()
-
+Location = ['北部空品區','','中部空品區','','南部空品區','東部空品區']
 # 實作下來式選單（回傳一個 list）
-selected_location = st.sidebar.selectbox('選一個地區', location_list)
+# selected_location = st.sidebar.selectbox('選一個地區', location_list)
+selected_area = st.sidebar.selectbox('選一個空品區', Location)
+central = ['大城','埔里','竹山']
+north = ['富貴角','永和','中壢','三重']
+sorth = ['復興','恆春','潮州','屏東','小港']
 
+if selected_area == '北部空品區':
+    location = st.sidebar.selectbox('選擇地區', north)
+elif selected_area == '中部空品區':
+    location = st.sidebar.selectbox('選擇地區', central)
+elif selected_area == '南部空品區':
+    location = st.sidebar.selectbox('選擇地區', sorth)
 
-
+st.write('第二個選項：', location)
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
-if len(selected_location) == 0:
+if len(location) == 0:
     st.text('請選擇一項開始繪圖！')
 
 # 當使用者選擇至少一項內容時
