@@ -152,7 +152,12 @@ fig.update_layout(
         )
     ),
     height=600,
-    # width=600,
+    margin=dict(
+        r=100,  # 調整右側的間距
+        l=100,  # 調整左側的間距
+        t=100,  # 調整上方的間距
+        b=100,  # 調整下方的間距
+    ),
     # showlegend=False
 )
 
