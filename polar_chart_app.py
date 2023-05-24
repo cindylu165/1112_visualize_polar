@@ -20,7 +20,7 @@ location_list = _df.sitename.unique().tolist()
 # location_list.sort()
 
 # 實作下來式選單（回傳一個 list）
-selected_location = st.selectbox('選一個地區', location_list)
+selected_location = st.sidebar.selectbox('選一個地區', location_list)
 
 
 
