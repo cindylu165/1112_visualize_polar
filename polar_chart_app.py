@@ -80,7 +80,7 @@ else:
             colorscale='Blues',  # 設定顏色漸層
             colorbar=dict(
                 title='相對濕度',
-                len=0.4,
+                len=0.5,
                 y=0.25,
                 x=1.1,
                 tickfont=dict(
@@ -109,7 +109,7 @@ else:
             colorscale='Reds',  # 設定顏色漸層,
             colorbar=dict(
                 title='細懸浮微粒',
-                len=0.4,
+                len=0.5,
                 y=0.25,
                 x=0.9,
                 tickfont=dict(
@@ -137,7 +137,7 @@ else:
             colorscale='Greens',  # 設定顏色漸層
             colorbar=dict(
                 title='懸浮微粒',
-                len=0.4,
+                len=0.5,
                 y=0.25,
                 x=1,
                 tickfont=dict(
@@ -168,13 +168,7 @@ else:
                 )
             )
         ),
-        height=500,
-        margin=dict(
-            r=300,  # 調整右側的間距
-            l=100,  # 調整左側的間距
-            t=100,  # 調整上方的間距
-            b=100,  # 調整下方的間距
-        ),
+        height=550,
         # showlegend=False
     )
 
