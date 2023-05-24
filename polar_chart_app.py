@@ -18,7 +18,7 @@ st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 # location_list = _df.sitename.unique().tolist()
 location_list = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
 # location_list.sort()
-Location = ['北部空品區','','中部空品區','','南部空品區','東部空品區']
+Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
 # 實作下來式選單（回傳一個 list）
 # selected_location = st.sidebar.selectbox('選一個地區', location_list)
 selected_area = st.sidebar.selectbox('選一個空品區', Location)
