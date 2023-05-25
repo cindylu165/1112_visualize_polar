@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 # 設定網頁標題
 st.title("空氣品質監測")
 # 設定網頁副標題
-st.markdown("相對溼度對PM2.5、PM10、CO的影響")
+st.markdown("相對溼度對PM2.5、PM10的影響")
 # set mode is widemode
 
 # 定義下拉式選單選項（使用字母排序）
