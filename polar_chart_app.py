@@ -13,7 +13,7 @@ _df = pd.read_csv("./data.csv")
 st.set_page_config(layout="wide")
 # 設定網頁標題
 st.title("空氣品質監測")
-st.markdown("相對溼度對PM2.5、PM10的影響")
+st.subheader("相對溼度對PM2.5、PM10的影響")
 
 # set sidebar and selectbox
 # two layers selectbox，choose the area firdt then location
