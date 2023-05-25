@@ -8,21 +8,16 @@ import plotly.graph_objects as go
 
 ## read the data
 _df = pd.read_csv("./data.csv")
+
+# set the page config is wide mode default
 st.set_page_config(layout="wide")
 # 設定網頁標題
 st.title("空氣品質監測")
-# 設定網頁副標題
 st.markdown("相對溼度對PM2.5、PM10的影響")
-# set mode is widemode
 
-# 定義下拉式選單選項（使用字母排序）
-# location_list = _df.sitename.unique().tolist()
-location_list = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
-# location_list.sort()
+# set sidebar and selectbox
+# two layers selectbox，choose the area firdt then location
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
-# 實作下來式選單（回傳一個 list）
-# selected_location = st.sidebar.selectbox('選一個地區', location_list)
-
 selected_area = st.sidebar.selectbox('選一個空品區', Location)
 central = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
 north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀音','大園','桃園','大同','松山','古亭','萬華','中山','士林','淡水','林口','菜寮','新莊','板橋','土城','新店','萬里','汐止','基隆']
@@ -39,6 +34,8 @@ elif selected_area == '東部空品區':
     location = st.sidebar.selectbox('選擇地區', east)
 
 st.write('**地區** : ', selected_area, "-",location)
+
+### 針對選擇的地區繪製極地圖
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
 if len(location) == 0:
     st.text('請選擇一項開始繪圖！')
@@ -78,7 +75,7 @@ else:
 
 
     # 自定義的年月份標籤
-    month_labels = ['2021/01', '2021/02', '2021/03', '2021/04', '2021/05', '2021/06',
+    show_date_chart = ['2021/01', '2021/02', '2021/03', '2021/04', '2021/05', '2021/06',
                 '2021/07', '2021/08', '2021/09', '2021/10', '2021/11', '2021/12',
                 '2022/01', '2022/02', '2022/03', '2022/04', '2022/05', '2022/06',
                 '2022/07', '2022/08', '2022/09', '2022/10', '2022/11', '2022/12']
@@ -90,7 +87,7 @@ else:
     fig.add_trace(go.Scatterpolar(
         name='相對濕度',
         r=df_location['相對濕度'].tolist(),
-        theta=month_labels,
+        theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
@@ -113,13 +110,13 @@ else:
             color='blue',
             width=1
         ),
-        text=month_labels,  # 設定標籤文本為年月份
+        text=show_date_chart,  # 設定標籤文本為年月份
         hovertemplate="日期: %{text}<br>percent: %{r} %<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
         name='細懸浮微粒',
         r=df_location['細懸浮微粒'].tolist(),
-        theta=month_labels,
+        theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
@@ -141,13 +138,13 @@ else:
             color='blue',
             width=1
         ),
-        text=month_labels,  # 設定標籤文本為年月份
+        text=show_date_chart,  # 設定標籤文本為年月份
         hovertemplate="日期: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
         name='懸浮微粒',
         r=df_location['懸浮微粒'].tolist(),
-        theta=month_labels,
+        theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
@@ -169,7 +166,7 @@ else:
             color='blue',
             width=1
         ),
-        text=month_labels,  # 設定標籤文本為年月份
+        text=show_date_chart,  # 設定標籤文本為年月份
         hovertemplate="日期: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式 
     ))
 
