@@ -12,8 +12,8 @@ _df = pd.read_csv("./data.csv")
 # set the page config is wide mode default
 st.set_page_config(layout="wide")
 # 設定網頁標題
-st.title("空氣品質監測")
-st.subheader("相對溼度對PM2.5、PM10的影響")
+# st.title("Air Quality Monitoring")
+st.subheader("Effect of relative humidity on PM2.5 and PM10")
 
 # set sidebar and selectbox
 # two layers selectbox，choose the area firdt then location
@@ -24,6 +24,7 @@ north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀�
 sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營','楠梓','林園','大寮','鳳山','仁武','橋頭','美濃']
 east = ['關山','冬山','宜蘭','花蓮','臺東']
 
+st.sidebar.title('parameter setting')
 if selected_area == '北部空品區':
     location = st.sidebar.selectbox('選擇地區', north)
 elif selected_area == '中部空品區':
@@ -94,7 +95,7 @@ else:
             color=df_location['相對濕度'].tolist(),  # 根據 r 值設定顏色
             colorscale='Blues',  # 設定顏色漸層
             colorbar=dict(
-                title='相對濕度',
+                title='humidity',
                 len=0.4,
                 y=0.30,
                 x=1.1,
@@ -123,7 +124,7 @@ else:
             color=df_location['細懸浮微粒'].tolist(),  # 根據 r 值設定顏色
             colorscale='Reds',  # 設定顏色漸層,
             colorbar=dict(
-                title='細懸浮微粒',
+                title='PM2.5',
                 len=0.4,
                 y=0.30,
                 x=0.9,
@@ -151,7 +152,7 @@ else:
             color=df_location['懸浮微粒'].tolist(),  # 根據 r 值設定顏色
             colorscale='Greens',  # 設定顏色漸層
             colorbar=dict(
-                title='懸浮微粒',
+                title='PM10',
                 len=0.4,
                 y=0.30,
                 x=1,
