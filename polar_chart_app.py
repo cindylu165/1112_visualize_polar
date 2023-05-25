@@ -15,6 +15,7 @@ st.set_page_config(layout="wide")
 # st.title("Air Quality Monitoring")
 st.subheader("Effect of relative humidity on PM2.5 and PM10")
 
+st.sidebar.title('parameter setting')
 # set sidebar and selectbox
 # two layers selectbox，choose the area firdt then location
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
@@ -24,7 +25,6 @@ north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀�
 sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營','楠梓','林園','大寮','鳳山','仁武','橋頭','美濃']
 east = ['關山','冬山','宜蘭','花蓮','臺東']
 
-st.sidebar.title('parameter setting')
 if selected_area == '北部空品區':
     location = st.sidebar.selectbox('選擇地區', north)
 elif selected_area == '中部空品區':
