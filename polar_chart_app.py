@@ -21,10 +21,12 @@ location_list = ['大城','埔里','竹山','南投','二林','線西','彰化',
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
 # 實作下來式選單（回傳一個 list）
 # selected_location = st.sidebar.selectbox('選一個地區', location_list)
+
 selected_area = st.sidebar.selectbox('選一個空品區', Location)
-central = ['大城','埔里','竹山']
-north = ['富貴角','永和','中壢','三重']
-sorth = ['復興','恆春','潮州','屏東','小港']
+central = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
+north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀音','大園','桃園','大同','松山','古亭','萬華','中山','士林','淡水','林口','菜寮','新莊','板橋','土城','新店','萬里','汐止','基隆']
+sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營','楠梓','林園','大寮','鳳山','仁武','橋頭','美濃']
+east = ['關山','冬山','宜蘭','花蓮','臺東']
 
 if selected_area == '北部空品區':
     location = st.sidebar.selectbox('選擇地區', north)
@@ -32,6 +34,8 @@ elif selected_area == '中部空品區':
     location = st.sidebar.selectbox('選擇地區', central)
 elif selected_area == '南部空品區':
     location = st.sidebar.selectbox('選擇地區', sorth)
+elif selected_area == '東部空品區':
+    location = st.sidebar.selectbox('選擇地區', east)
 
 st.write('**地區** : ', selected_area, "-",location)
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
@@ -188,3 +192,4 @@ else:
     # # 顯示圖表
     # fig.show()
     st.plotly_chart(fig, use_container_width=True)
+    st.set_page_config(layout="wide")
