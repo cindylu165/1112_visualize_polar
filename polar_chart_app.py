@@ -26,20 +26,20 @@ sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營'
 east = ['關山','冬山','宜蘭','花蓮','臺東']
 
 if selected_area == '北部空品區':
-    location = st.sidebar.selectbox('選擇地區', north)
+    location = st.sidebar.selectbox('Please choose a location', north)
 elif selected_area == '中部空品區':
-    location = st.sidebar.selectbox('選擇地區', central)
+    location = st.sidebar.selectbox('Please choose a location', central)
 elif selected_area == '南部空品區':
-    location = st.sidebar.selectbox('選擇地區', sorth)
+    location = st.sidebar.selectbox('Please choose a location', sorth)
 elif selected_area == '東部空品區':
-    location = st.sidebar.selectbox('選擇地區', east)
+    location = st.sidebar.selectbox('Please choose a location', east)
 
 st.write('**Location** : ', selected_area, "-",location)
 
 ### 針對選擇的地區繪製極地圖
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
 if len(location) == 0:
-    st.text('Please choose a location')
+    st.text('Please choose one atleast!')
 
 # 當使用者選擇至少一項內容時
 else:
