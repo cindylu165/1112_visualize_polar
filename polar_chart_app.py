@@ -19,7 +19,7 @@ st.sidebar.title('parameter setting')
 # set sidebar and selectbox
 # two layers selectbox，choose the area firdt then location
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
-selected_area = st.sidebar.selectbox('選一個空品區', Location)
+selected_area = st.sidebar.selectbox('Please choose an Area', Location)
 central = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
 north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀音','大園','桃園','大同','松山','古亭','萬華','中山','士林','淡水','林口','菜寮','新莊','板橋','土城','新店','萬里','汐止','基隆']
 sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營','楠梓','林園','大寮','鳳山','仁武','橋頭','美濃']
@@ -34,12 +34,12 @@ elif selected_area == '南部空品區':
 elif selected_area == '東部空品區':
     location = st.sidebar.selectbox('選擇地區', east)
 
-st.write('**地區** : ', selected_area, "-",location)
+st.write('**Location** : ', selected_area, "-",location)
 
 ### 針對選擇的地區繪製極地圖
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
 if len(location) == 0:
-    st.text('請選擇一項開始繪圖！')
+    st.text('Please choose a location')
 
 # 當使用者選擇至少一項內容時
 else:
@@ -68,9 +68,10 @@ else:
     loc = filtered_df[filtered_df['sitename']==location]
     loc = loc.replace('x', 0)
     loc = loc.fillna(0)
-    loc = pd.pivot_table(loc, values='concentration', index=loc['monitormonth'], columns='itemname')
+    loc = pd.pivot_table(loc, values='concentration', index=loc['monitormonth'], columns='itemengname')
     loc = loc.reset_index()
-    df_location = loc[['monitormonth', '細懸浮微粒', '懸浮微粒', '一氧化氮', '相對濕度']]
+    df_location = loc[['monitormonth', 'PM2.5', 'PM10', 'CO', 'RH']]
+    df_location.rename(columns = {'RH':'humidity'}, inplace = True)
     df_location['angle'] = df_location.monitormonth.apply(lambda x: date_to_angle(x))
 
 
@@ -86,13 +87,13 @@ else:
 
     # 添加數據到圖表，並設定標籤文本
     fig.add_trace(go.Scatterpolar(
-        name='相對濕度',
-        r=df_location['相對濕度'].tolist(),
+        name='humidity',
+        r=df_location['humidity'].tolist(),
         theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
-            color=df_location['相對濕度'].tolist(),  # 根據 r 值設定顏色
+            color=df_location['humidity'].tolist(),  # 根據 r 值設定顏色
             colorscale='Blues',  # 設定顏色漸層
             colorbar=dict(
                 title='humidity',
@@ -103,8 +104,8 @@ else:
                     size=10,
                 )
             ),
-            cmin=0.9*min(df_location['相對濕度'].tolist()),  # 設定顏色漸層最小值
-            cmax=max(df_location['相對濕度'].tolist())  # 設定顏色漸層最大值
+            cmin=0.9*min(df_location['humidity'].tolist()),  # 設定顏色漸層最小值
+            cmax=max(df_location['humidity'].tolist())  # 設定顏色漸層最大值
         ),
         
         line=dict(
@@ -115,13 +116,13 @@ else:
         hovertemplate="日期: %{text}<br>percent: %{r} %<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
-        name='細懸浮微粒',
-        r=df_location['細懸浮微粒'].tolist(),
+        name='PM2.5',
+        r=df_location['PM2.5'].tolist(),
         theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
-            color=df_location['細懸浮微粒'].tolist(),  # 根據 r 值設定顏色
+            color=df_location['PM2.5'].tolist(),  # 根據 r 值設定顏色
             colorscale='Reds',  # 設定顏色漸層,
             colorbar=dict(
                 title='PM2.5',
@@ -132,8 +133,8 @@ else:
                     size=10,
                 )
             ),
-            cmin=0.9*min(df_location['細懸浮微粒'].tolist()),  # 設定顏色漸層最小值
-            cmax=max(df_location['細懸浮微粒'].tolist())  # 設定顏色漸層最大值
+            cmin=0.9*min(df_location['PM2.5'].tolist()),  # 設定顏色漸層最小值
+            cmax=max(df_location['PM2.5'].tolist())  # 設定顏色漸層最大值
         ),
         line=dict(
             color='blue',
@@ -143,13 +144,13 @@ else:
         hovertemplate="日期: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
-        name='懸浮微粒',
-        r=df_location['懸浮微粒'].tolist(),
+        name='PM10',
+        r=df_location['PM10'].tolist(),
         theta=show_date_chart,
         mode='markers',  # 使用 'lines+markers' 顯示線段和點
         marker=dict(
             size=12,
-            color=df_location['懸浮微粒'].tolist(),  # 根據 r 值設定顏色
+            color=df_location['PM10'].tolist(),  # 根據 r 值設定顏色
             colorscale='Greens',  # 設定顏色漸層
             colorbar=dict(
                 title='PM10',
@@ -160,8 +161,8 @@ else:
                     size=10,
                 )
             ),
-            cmin=min(df_location['懸浮微粒'].tolist()),  # 設定顏色漸層最小值
-            cmax=0.9*max(df_location['懸浮微粒'].tolist())  # 設定顏色漸層最大值
+            cmin=min(df_location['PM10'].tolist()),  # 設定顏色漸層最小值
+            cmax=0.9*max(df_location['PM10'].tolist())  # 設定顏色漸層最大值
         ),
         line=dict(
             color='blue',
