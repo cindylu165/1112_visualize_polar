@@ -12,11 +12,11 @@ with st.container():
     
     if tabs[0]:
         with st.sidebar:
-            st.sidebar.title('parameter setting')
+            st.sidebar.title('parameter setting1')
         
     elif tabs[1]:
         with st.sidebar:
-            st.sidebar.title('parameter setting')
+            st.sidebar.title('parameter setting2')
     elif tabs[2]:
         with st.sidebar:
-            st.sidebar.title('parameter setting')
+            st.sidebar.title('parameter setting3')
