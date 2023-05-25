@@ -55,12 +55,12 @@ else:
         year = text[:4]
         month = text[-2:]
         return year + "-" + month
-    # 將日期轉換為角度
+    # 將Date轉換為角度
     def date_to_angle(date):
         date = date.strftime("%Y-%m-%d")
         return dict_date_angle[date]
     _df['monitormonth'] = pd.to_datetime(_df["monitormonth"].apply(lambda x: transform(x)), format='%Y-%m')
-    # 日期範圍 : 2021-01 ~ 2022-12
+    # Date範圍 : 2021-01 ~ 2022-12
     start_date = pd.to_datetime('2021-01', format='%Y-%m')
     end_date = pd.to_datetime('2022-12', format='%Y-%m')
     filtered_df = _df[(_df['monitormonth'] >= start_date) & (_df['monitormonth'] <= end_date)]
@@ -113,7 +113,7 @@ else:
             width=1
         ),
         text=show_date_chart,  # 設定標籤文本為年月份
-        hovertemplate="日期: %{text}<br>percent: %{r} %<br>",  # 定義 hover 顯示的文本格式
+        hovertemplate="Date: %{text}<br>percent: %{r} %<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
         name='PM2.5',
@@ -141,7 +141,7 @@ else:
             width=1
         ),
         text=show_date_chart,  # 設定標籤文本為年月份
-        hovertemplate="日期: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式
+        hovertemplate="Date: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式
     ))
     fig.add_trace(go.Scatterpolar(
         name='PM10',
@@ -169,7 +169,7 @@ else:
             width=1
         ),
         text=show_date_chart,  # 設定標籤文本為年月份
-        hovertemplate="日期: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式 
+        hovertemplate="Date: %{text}<br>μg/m3: %{r}<br>",  # 定義 hover 顯示的文本格式 
     ))
 
     # 設定角度刻度和標籤，並且顏色填充用藍色根據r值由小到大漸層
