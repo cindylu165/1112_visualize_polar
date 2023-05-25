@@ -102,7 +102,7 @@ else:
                 y=0.30,
                 x=1.1,
                 tickfont=dict(
-                    size=9,
+                    size=10,
                 )
             ),
             cmin=0.9*min(df_location['相對濕度'].tolist()),  # 設定顏色漸層最小值
@@ -131,7 +131,7 @@ else:
                 y=0.30,
                 x=0.9,
                 tickfont=dict(
-                    size=9,
+                    size=10,
                 )
             ),
             cmin=0.9*min(df_location['細懸浮微粒'].tolist()),  # 設定顏色漸層最小值
@@ -159,7 +159,7 @@ else:
                 y=0.30,
                 x=1,
                 tickfont=dict(
-                    size=9,
+                    size=10,
                 )
             ),
             cmin=min(df_location['懸浮微粒'].tolist()),  # 設定顏色漸層最小值
@@ -182,7 +182,7 @@ else:
                 ticks="outside",
                 tickmode='array',
                 tickfont=dict(
-                    size=9,
+                    size=10,
                 )
             )
         ),
