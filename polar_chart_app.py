@@ -8,13 +8,13 @@ import plotly.graph_objects as go
 
 ## read the data
 _df = pd.read_csv("./data.csv")
-
+st.set_page_config(layout="wide")
 # 設定網頁標題
 st.title("空氣品質監測")
 # 設定網頁副標題
 st.markdown("相對溼度對PM2.5、PM10、CO的影響")
 # set mode is widemode
-# st.set_page_config(layout="wide")
+
 # 定義下拉式選單選項（使用字母排序）
 # location_list = _df.sitename.unique().tolist()
 location_list = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
