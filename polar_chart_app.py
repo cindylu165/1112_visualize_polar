@@ -12,7 +12,6 @@ _df = pd.read_csv("./data.csv")
 # set the page config is wide mode default
 st.set_page_config(layout="wide")
 # 設定網頁標題
-# st.title("Air Quality Monitoring")
 st.subheader("Effect of relative humidity on PM2.5 and PM10")
 
 st.sidebar.title('parameter setting')
