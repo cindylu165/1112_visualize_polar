@@ -12,14 +12,18 @@ with st.container():
     
     if tabs[0]:
         with st.sidebar:
-            st.sidebar.title('parameter setting1')
-            st.sidebar.selectbox('Please choose a location', ['1','2'])
+            st.write("Sidebar for Tab 1")
+        
+        st.write("Content of Tab 1")
         
     elif tabs[1]:
         with st.sidebar:
-            st.sidebar.title('parameter setting2')
-            st.sidebar.selectbox('Please choose a location', ['2','3'])
+            st.write("Sidebar for Tab 2")
+        
+        st.write("Content of Tab 2")
+        
     elif tabs[2]:
         with st.sidebar:
-            st.sidebar.title('parameter setting3')
-            st.sidebar.selectbox('Please choose a location', ['4','5'])
+            st.write("Sidebar for Tab 3")
+        
+        st.write("Content of Tab 3")
