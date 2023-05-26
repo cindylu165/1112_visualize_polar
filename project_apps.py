@@ -17,7 +17,9 @@ st.markdown("<style> .stTab > button { font-size: 24px; } </style>", unsafe_allo
 st.sidebar.success('Please choose an Question above')
 
 st.markdown(
-    """ ### Introduction  """)
+    """ ### Introduction 
+    - Currently, air pollution has become an urgent environmental issue that needs to be addressed.The haze caused by ozone, sulfur dioxide, and other PM2.5 pollutants can lead to other environmental problems. Acid rain is one of the major issues caused by industrial areas, and almost the entire Taiwan is now affected by acid rain. Therefore, we have decided to analyze the current trends of air pollution and acid rain, hoping to encourage everyone to take concrete actions to protect the environment.  
+    """)
 
 
 
