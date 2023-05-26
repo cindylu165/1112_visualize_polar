@@ -32,7 +32,11 @@ elif selected_area == '東部空品區':
 st.write('**Location** : ', selected_area, "-",location)
 
 ## read the data
-_df = pd.read_csv("./data.csv")
+# _df = pd.read_csv("./data.csv")
+_df = pd.read_csv('./rawData/空氣品質監測月值.csv')
+new_col_names = {'"siteid"':'siteid', '"sitename"':'sitename', '"itemid"':'itemid', '"itemname"':'itemname', 
+                    '"itemengname"':'itemengname', '"itemunit"':'itemunit', '"monitormonth"':'monitormonth', '"concentration"':'concentration'}
+_df = _df.rename(columns=new_col_names)
 
 ### 針對選擇的地區繪製極地圖
 # 設定初始化顯示內容（當使用者沒有選擇任何東西時）
