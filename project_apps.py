@@ -33,4 +33,4 @@ st.markdown(
     - The dataset contains {_df.shape[1]} columns and {_df.shape[0]} rows
     """)
 _df = _df[['sitename','itemname','itemengname','itemunit','monitormonth','concentration']]
-st.dataframe(data=_df, use_container_width=True)
+st.dataframe(_df, use_container_width=True)
