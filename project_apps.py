@@ -24,10 +24,11 @@ st.markdown(
 _df = pd.read_csv("./data.csv")
 _df = _df.replace('x', np.nan)
 _df = _df.dropna()
-st.dataframe(data=_df)
+
 st.markdown(
     f""" ### Dataset
     - The dataset is from [Air Quality Monitoring Network](https://data.epa.gov.tw/dataset/detail/AQX_P_08 )
     - The dataset contains {_df.shape[1]} columns and {_df.shape[0]} rows
     """)
-# st.text(f'number of data is {_df.shape[0]}')
+_df = _df[['sitename','itemname','itemengname','itemunit','monitormonth','concentration']]
+st.dataframe(data=_df)
