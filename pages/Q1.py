@@ -1,7 +1,13 @@
+# Import dependencies
 import streamlit as st
+import streamlit.components.v1 as components
+import pandas as pd
+import networkx as nx
+from pyvis.network import Network
+import plotly.graph_objects as go
 
 # 設定網頁config
-st.set_page_config(page_title="Air Quality Monitoring", page_icon="☁️", layout="wide")
+st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 # 設定網頁標題
 st.title("Effect of relative humidity on PM2.5 and PM10")
 
@@ -24,3 +30,5 @@ elif selected_area == '東部空品區':
     location = st.sidebar.selectbox('Please choose a location', east)
 
 st.write('**Location** : ', selected_area, "-",location)
+_df = pd.read_csv("./data.csv")
+st.dataframe(_df, use_container_width = True)
