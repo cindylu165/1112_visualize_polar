@@ -4,6 +4,7 @@ import pandas as pd
 import networkx as nx
 from pyvis.network import Network
 import plotly.graph_objects as go
+import numpy as np
 
 # 設定網頁config
 st.set_page_config(page_title="Air Quality Monitoring", page_icon="☁️", layout="wide")
@@ -21,7 +22,7 @@ st.markdown(
 
 
 _df = pd.read_csv("./data.csv")
-_df = _df.replace('x', 'Nan')
+_df = _df.replace('x', np.nan)
 _df = _df.dropna()
 st.dataframe(data=_df)
 st.markdown(
