@@ -31,7 +31,7 @@ st.markdown(
     f""" ### Dataset
     - The dataset is from [Air Quality Monitoring Network](https://data.epa.gov.tw/dataset/detail/AQX_P_08 )
     - The dataset contains {_df.shape[1]} columns and {_df.shape[0]} rows
-    - The date range of the dataset is from 2021/01 to 2022/12
+    - The date range of the dataset is from 1982/07 to 2023/04
     - Quality:
         - Missing value Percentage: 1.4%
         - From the government
