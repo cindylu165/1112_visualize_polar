@@ -15,8 +15,8 @@ import streamlit as st
 
 # -------------------------------------------------------- Load Data ------------------------------------------------------#
 
-air_data = pd.read_csv('./data.csv')
-site_data = pd.read_csv('./監測站基本資料.csv')
+air_data = pd.read_csv('./rawData/空氣品質監測月值.csv')
+site_data = pd.read_csv('./rawData/監測站基本資料.csv')
 
 # ----------------------------------------------------- Data Processing ---------------------------------------------------#
 
