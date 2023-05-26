@@ -21,11 +21,11 @@ st.markdown(
 
 
 _df = pd.read_csv("./data.csv")
-_df = _df.replace('x', 0)
-_df = _df.drop(0)
+_df = _df.replace('x', 'Nan')
+_df = _df.dropna()
 st.dataframe(data=_df)
 st.markdown(
-    """ ### Dataset
+    f""" ### Dataset
     - The dataset is from [Air Quality Monitoring Network](https://data.epa.gov.tw/dataset/detail/AQX_P_08 )
     - The dataset contains {_df.shape[1]} columns and {_df.shape[0]} rows
     """)
