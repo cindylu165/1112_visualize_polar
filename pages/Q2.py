@@ -85,7 +85,7 @@ def plot(df, area) :
     return fig
 
 # --------------------------------------------------------- Streamlit -----------------------------------------------------------#
-st.set_page_config(layout='wide')
+# st.set_page_config(layout='wide')
 
 st.header('Do different regions and temperature conditions contribute to an increase in the concentrations of acid rain precursors (NOx, SO2)?')
 
