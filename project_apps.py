@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 # 設定網頁config
-st.set_page_config(page_title="Air Quality Monitoring", page_icon="☁️", layout="wide")
+st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 # 設定網頁標題
 st.title("Air Quality Monitoring")
 
