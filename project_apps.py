@@ -22,7 +22,7 @@ st.markdown(
 
 _df = pd.read_csv("./data.csv")
 _df = _df.replace('x', 0)
-_df = _df.fillna(0)
+_df = _df.drop(0)
 st.dataframe(data=_df)
 st.markdown(
     """ ### Dataset
