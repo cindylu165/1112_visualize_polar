@@ -8,5 +8,4 @@ st.title("Air Quality Monitoring")
 # 使用 st.markdown 設定標籤的字體大小
 st.markdown("<style> .stTab > button { font-size: 24px; } </style>", unsafe_allow_html=True)
 
-st.sidebar.markdown('Please choose an Question')
-st.sidebar.title('parameter setting')
+st.sidebar.success('Please choose an Question above')
