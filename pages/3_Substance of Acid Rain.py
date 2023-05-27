@@ -79,7 +79,7 @@ def plot(df, area) :
         sliders=[
             dict(
                 active=0,
-                currentvalue={"prefix": "MonitorTime: "},
+                currentvalue={"prefix": "Monitor Time: "},
             )
         ]
     )

@@ -32,7 +32,7 @@ elif selected_area == '東部空品區':
 st.write('**Location** : ', selected_area, "-",location)
 
 ## read the data
-# _df = pd.read_csv("./data.csv")
+
 _df = pd.read_csv('./rawData/空氣品質監測月值.csv')
 new_col_names = {'"siteid"':'siteid', '"sitename"':'sitename', '"itemid"':'itemid', '"itemname"':'itemname', 
                     '"itemengname"':'itemengname', '"itemunit"':'itemunit', '"monitormonth"':'monitormonth', '"concentration"':'concentration'}
