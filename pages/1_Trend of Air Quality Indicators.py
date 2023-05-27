@@ -7,7 +7,7 @@ import streamlit as st
 st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 # 設定網頁標題
 st.title("What is the relationship between concentrations of different air quality indicators?")
-
+st.sidebar.title('Parameter Setting')
 # -------------------------------------------------------- Load Data ------------------------------------------------------#
 try:
     air_data = pd.read_csv('./rawData/空氣品質監測月值.csv')
@@ -20,7 +20,7 @@ except:
 
 # 實作下來式選單（回傳一個 list）
 option_list = list(air_data['"itemengname"'].unique())
-selected_option = st.sidebar.selectbox('Chooose an air indicator!', option_list)
+selected_option = st.sidebar.selectbox('Please choose an air indicator', option_list)
 
 
 def transform(text):
