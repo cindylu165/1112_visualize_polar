@@ -42,8 +42,8 @@ st.dataframe(_df, use_container_width = True)
 
 st.markdown(
     f""" ### Question
-    1. Effect of relative humidity on PM2.5 and PM10
-    2. Do different regions and temperature conditions contribute to an increase in the concentrations of acid rain precursors (NOx, SO2)?
-    3. Question3
+    1. What is the relationship between concentrations of different air quality indicators?
+    2. Effect of relative humidity on PM2.5 and PM10
+    3. Do different regions and temperature conditions contribute to an increase in the concentrations of acid rain precursors (NOx, SO2)?
 
     """, unsafe_allow_html=True)
