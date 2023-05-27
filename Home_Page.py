@@ -37,6 +37,9 @@ st.markdown(
         - From the government
 
     """, unsafe_allow_html=True)
+new_col_names = {'"siteid"':'siteid', '"sitename"':'sitename', '"itemid"':'itemid', '"itemname"':'itemname', 
+                    '"itemengname"':'itemengname', '"itemunit"':'itemunit', '"monitormonth"':'monitormonth', '"concentration"':'concentration'}
+_df = _df.rename(columns=new_col_names)
 _df = _df[['sitename','itemname','itemengname','itemunit','monitormonth','concentration']]
 st.dataframe(_df, use_container_width = True)
 
