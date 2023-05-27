@@ -1,9 +1,3 @@
-import streamlit as st
-
-# 設定網頁config
-st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
-# 設定網頁標題
-
 # reference : https://docs.streamlit.io/library/api-reference/charts/st.plotly_chart
 
 import pandas as pd
@@ -34,9 +28,11 @@ def tidydata(air_df, site_df):
     df['concentration'] = pd.to_numeric(df['concentration'], errors='coerce')
     print(df.dtypes['concentration'])
 
-    # 分割欄位
+    # 日期格式設定
     df['monitormonth'] = df['monitormonth'].astype(str)
     df[['year', 'month']] = df['monitormonth'].str.extract(r'(.{4})(.*)')
+    df['monitormonth'] = pd.to_datetime(df['year'].astype(str) + '-' + df['month'].astype(str), format='%Y-%m')
+    df['monitormonth'] = df['monitormonth'].dt.strftime('%Y/%m')
 
     return df
 
@@ -45,10 +41,10 @@ def transform(df) :
 
     temp = df[df['itemengname'] == 'AMB_TEMP']
     temp['temperature'] = temp['concentration']
-    temp = temp[['year', 'month', 'sitename', 'county', 'areaname', 'temperature']]
+    temp = temp[['monitormonth', 'sitename', 'county', 'areaname', 'temperature']]
 
     df = df[df['itemengname'].isin(['NOx', 'SO2'])]
-    mergeKey = ['year', 'month', 'sitename', 'county', 'areaname']
+    mergeKey = ['monitormonth', 'sitename', 'county', 'areaname']
     merge = pd.merge(df, temp, on=mergeKey)
 
     # 空值處理
@@ -58,11 +54,11 @@ def transform(df) :
 
     return merge
 
-tidy = transform(tidydata(air_data, site_data))
-columns_to_keep = ['year', 'month', 'sitename', 'county', 'areaname', 'temperature', 'itemengname', 'concentration', 'monitormonth']
-tidy = tidy.reindex(columns=columns_to_keep)
+tidyData = transform(tidydata(air_data, site_data))
+columns_to_keep = ['monitormonth', 'sitename', 'county', 'areaname', 'temperature', 'itemengname', 'concentration']
+tidyData = tidyData.reindex(columns=columns_to_keep)
 
-print('\nTidy Data :\n', tidy)
+# print('\nTidy Data :\n', tidyData)
 
 # ---------------------------------------------------------- Plotly ----------------------------------------------------------#
 
@@ -74,8 +70,18 @@ def plot(df, area) :
 
     fig = px.scatter(df, x='concentration', y="temperature", size='concentration',
                 color="itemengname", hover_name="sitename", log_x=True, size_max=60, 
-                animation_frame='year', animation_group='sitename', range_x=[_min, _max], range_y=[0, 40],
+                animation_frame='monitormonth', animation_group='sitename', range_x=[_min, _max], range_y=[0, 40],
                 labels=dict(itemengname='Measurement Item', concentration='Concentration (ppb)', temperature='Temperature (℃)'))
+    
+    fig.update_layout(
+        # width = 800,
+        sliders=[
+            dict(
+                active=0,
+                currentvalue={"prefix": "MonitorTime: "},
+            )
+        ]
+    )
     
     for trace in fig.data:
         trace.marker.line.width = 1
@@ -84,14 +90,14 @@ def plot(df, area) :
     return fig
 
 # --------------------------------------------------------- Streamlit -----------------------------------------------------------#
-# st.set_page_config(layout='wide')
+st.set_page_config(layout='wide')
 
-st.header('Do different regions and temperature conditions contribute to an increase in the concentrations of acid rain precursors (NOx, SO2)?')
+st.title('Does the concentration of NOx and SO2 increase in different areas and temperatures?')
 
 list_area = ['北部空品區', '竹苗空品區', '中部空品區', '雲嘉南空品區', '高屏空品區', '宜蘭空品區', '花東空品區', '其他']
 option = st.sidebar.selectbox(
     'Please Select an Air Quality Area',
     list_area)
 
-st.plotly_chart(plot(tidy, option), theme=None, use_container_width=True)
+st.plotly_chart(plot(tidyData, option), theme=None, use_container_width=True)
 
