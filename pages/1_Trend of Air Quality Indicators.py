@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 # 設定網頁config
-st.set_page_config(page_title="Air Quality Monitoring", page_icon="☁️", layout="wide")
+st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 # 設定網頁標題
 st.title("What is the relationship between concentrations of different air quality indicators?")
 
@@ -65,7 +65,7 @@ if (selected_option):
     df_mean = pd.DataFrame(df_mean).reset_index()
     # df_CO = df_mean[df_mean['itemname'] == "細懸浮微粒"]
     fig2 = px.line(df_mean, x='monitormonth', y='concentration', title=f'{selected_option} Time Series Change',
-                   labels=dict(concentration='Concentration (ppb)', monitormonth='Monitor Year'))
+                   labels=dict(concentration='Concentration (ppb)', monitormonth='Monitor Time'))
 
     fig2.update_xaxes(
         rangeslider_visible=True,
