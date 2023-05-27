@@ -11,7 +11,7 @@ st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout=
 # 設定網頁標題
 st.title("Has the humidity had a positive or negative impact on the concentrations of PM2.5 and PM10 in recent years?")
 
-st.sidebar.title('parameter setting')
+st.sidebar.title('Parameter Setting')
 
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
 selected_area = st.sidebar.selectbox('Please choose an Area', Location)
