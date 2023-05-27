@@ -14,7 +14,7 @@ st.title("Has the humidity had a positive or negative impact on the concentratio
 st.sidebar.title('Parameter Setting')
 
 Location = ['北部空品區','中部空品區','南部空品區','東部空品區']
-selected_area = st.sidebar.selectbox('Please choose an Area', Location)
+selected_area = st.sidebar.selectbox('Please choose an area', Location)
 central = ['大城','埔里','竹山','南投','二林','線西','彰化','西屯','忠明','大里','沙鹿','豐原']
 north = ['富貴角','永和','中壢','三重','陽明','龍潭','平鎮','觀音','大園','桃園','大同','松山','古亭','萬華','中山','士林','淡水','林口','菜寮','新莊','板橋','土城','新店','萬里','汐止','基隆']
 sorth = ['復興','恆春','潮州','屏東','小港','前鎮','前金','左營','楠梓','林園','大寮','鳳山','仁武','橋頭','美濃']
