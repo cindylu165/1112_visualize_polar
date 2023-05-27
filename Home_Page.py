@@ -23,7 +23,7 @@ st.markdown(
 
 
 
-_df = pd.read_csv("./data.csv")
+_df = pd.read_csv("./rawData/空氣品質監測月值.csv")
 _df = _df.replace('x', np.nan)
 _df = _df.dropna()
 
