@@ -6,6 +6,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+# 設定網頁config
+st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 
 # -------------------------------------------------------- Load Data ------------------------------------------------------#
 
@@ -93,11 +95,11 @@ def plot(df, area) :
 st.set_page_config(layout='wide')
 
 st.title('Does the concentration of NOx and SO2 increase in different areas and temperatures?')
-
 list_area = ['北部空品區', '竹苗空品區', '中部空品區', '雲嘉南空品區', '高屏空品區', '宜蘭空品區', '花東空品區', '其他']
 option = st.sidebar.selectbox(
-    'Please Select an Air Quality Area',
+    'Please choose an air quality area',
     list_area)
+st.write('**Area** : ', option)
 
 st.plotly_chart(plot(tidyData, option), theme=None, use_container_width=True)
 
