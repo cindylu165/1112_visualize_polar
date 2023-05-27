@@ -47,6 +47,6 @@ st.markdown(
     f""" ### Question
     1. What is the relationship between concentrations of different air quality indicators?
     2. Has the humidity had a positive or negative impact on the concentrations of PM2.5 and PM10 in recent years?
-    3. Do different regions and temperature conditions contribute to an increase in the concentrations of acid rain precursors (NOx, SO2)?
+    3. Does the concentration of NOx and SO2 increase in different areas and temperatures?
 
     """, unsafe_allow_html=True)

@@ -95,6 +95,7 @@ def plot(df, area) :
 st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 st.title('Does the concentration of NOx and SO2 increase in different areas and temperatures?')
 st.sidebar.title('Parameter Setting')
+st.write('NOx and SO2 are the substances that form acid rain')
 
 list_area = ['北部空品區', '竹苗空品區', '中部空品區', '雲嘉南空品區', '高屏空品區', '宜蘭空品區', '花東空品區', '其他']
 option = st.sidebar.selectbox(
