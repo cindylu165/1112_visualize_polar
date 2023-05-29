@@ -45,7 +45,7 @@ st.dataframe(_df, use_container_width = True)
 
 st.markdown(
     f""" ### Question
-    1. What is the relationship between concentrations of different air quality indicators?
+    1. Which Air Quality Indicators have specific seasonal variations? What is the general trend of this indicator? Does it improve or deteriorate from year to year?
     2. Has the humidity had a positive or negative impact on the concentrations of PM2.5 and PM10 in recent years?
     3. Does the concentration of NOx and SO2 increase in different areas and temperatures?
 
