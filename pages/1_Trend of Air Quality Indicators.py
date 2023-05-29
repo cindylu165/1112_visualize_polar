@@ -6,7 +6,7 @@ import streamlit as st
 # 設定網頁config
 st.set_page_config(page_title="Air Quality Monitoring", page_icon="⛅", layout="wide")
 # 設定網頁標題
-st.title("What is the relationship between concentrations of different air quality indicators?")
+st.title("Which Air Quality Indicators have specific seasonal variations?\nWhat is the general trend of this indicator?\nDoes it improve or deteriorate from year to year?")
 st.sidebar.title('Parameter Setting')
 # -------------------------------------------------------- Load Data ------------------------------------------------------#
 try:
